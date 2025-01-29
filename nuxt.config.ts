@@ -3,6 +3,7 @@ import { defineNuxtConfig } from "@nuxt/bridge";
 import "intersection-observer";
 
 export default defineNuxtConfig({
+  baseURL: "/moodiefoodieweb/",
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
   target: "static",

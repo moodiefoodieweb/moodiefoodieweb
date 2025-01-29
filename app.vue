@@ -161,7 +161,7 @@
           loading="lazy"
           width="88"
           height="84"
-          src="https://preview.codeless.co/picante/coffee/wp-content/uploads/2018/06/coffee_logo.png"
+          src="/assets/img/coffee_logo.webp"
           style="margin: 20px 0 40px 0"
         />
         <h2 style="font-family: Prata; text-transform: uppercase">
