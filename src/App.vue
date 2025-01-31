@@ -381,7 +381,7 @@ body {
 
 h1 {
   font-family: BenchNine;
-  font-size: 5vw;
+  font-size: 3em;
   font-weight: 800;
   line-height: 60px;
   letter-spacing: 5px;
@@ -399,7 +399,7 @@ h2.page-title {
 #menu {
   border: 1px solid #e3e3e3;
   padding: 0;
-  font-size: 4vw;
+  font-size: 0.8em;
 }
 
 #menu button {
