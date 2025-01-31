@@ -4,12 +4,14 @@
       <div class="row">
         <div id="header" class="d-flex justify-content-center w-100">
           <div class="d-flex flex-column align-items-center w-100">
-            <img
-              :src="baseURL + '/assets/img/moodiefoodie-1.png'"
-              width="120"
-              height="120"
-              style="margin: 10px auto"
-            />
+            <a href="/">
+              <img
+                :src="baseURL + '/assets/img/moodiefoodie-1.png'"
+                width="120"
+                height="120"
+                style="margin: 10px auto"
+              />
+            </a>
             <h2 class="page-title">Moodie.Foodie</h2>
             <div id="menu-container">
               <div id="menu">
@@ -144,7 +146,7 @@
                 </div>
               </Teleport>
               <a
-                href="https://wa.me/85262568894?text=你好，很高興認識Moodie.Foodie！我希望日後能收到更多關於精神健康及飲食健康的資訊。請新增我為你的聯絡人！https://moodiefoodie.codingpanda.me/"
+                href="https://wa.me/85262568894?text=你好，很高興認識Moodie.Foodie！我希望日後能收到更多關於精神健康及飲食健康的資訊。請新增我為你的聯絡人！https://moodiefoodieweb.github.io/moodiefoodieweb/"
               >
                 <button data-filter=".portfolio_entries-dessert">
                   <font-awesome-icon
@@ -172,7 +174,7 @@
           loading="lazy"
           width="88"
           height="84"
-          src="/assets/img/coffee_logo.webp"
+          :src="baseURL + '/assets/img/coffee_logo.webp'"
           style="margin: 20px 0 40px 0"
         />
         <h2 style="font-family: Prata; text-transform: uppercase">
@@ -289,7 +291,7 @@ useHead({
     },
     {
       property: "og:url",
-      content: "https://moodiefoodieweb.github.io/moodiefoodie/",
+      content: "https://moodiefoodieweb.github.io/moodiefoodieweb/",
     },
     {
       property: "article:published_time",
@@ -308,7 +310,7 @@ useHead({
   link: [
     {
       rel: "canonical",
-      href: "https://moodiefoodieweb.github.io/moodiefoodie/",
+      href: "https://moodiefoodieweb.github.io/moodiefoodieweb/",
     },
     { rel: "preconnect", href: "https://fonts.googleapis.com" },
     { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: true },
