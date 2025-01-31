@@ -1,30 +1,34 @@
 <template>
-  <div id="wrapper">
-    <div id="header" class="d-flex justify-content-center">
-      <div class="d-flex flex-column align-items-center">
-        <img
-          src="/assets/img/moodiefoodie-1.png"
-          width="120"
-          height="120"
-          style="margin: 10px auto"
-        />
-        <h2 class="page-title">Moodie.Foodie</h2>
-        <div id="menu-container">
-          <div id="menu">
-            <button>
-              <font-awesome-icon :icon="['fa', 'utensils']" />
-              &nbsp;飲食推介
-            </button>
-            |
-            <button>
-              <font-awesome-icon :icon="['fas', 'cocktail']" />
-              &nbsp;飲品工作坊
-            </button>
-            |
-            <button>
-              <font-awesome-icon :icon="['fa', 'user-friends']" />
-              &nbsp;同行社群
-            </button>
+  <div id="wrapper" class="container">
+    <div class="container">
+      <div class="row">
+        <div id="header" class="d-flex justify-content-center w-100">
+          <div class="d-flex flex-column align-items-center w-100">
+            <img
+              :src="baseURL + '/assets/img/moodiefoodie-1.png'"
+              width="120"
+              height="120"
+              style="margin: 10px auto"
+            />
+            <h2 class="page-title">Moodie.Foodie</h2>
+            <div id="menu-container">
+              <div id="menu">
+                <button>
+                  <font-awesome-icon :icon="['fa', 'utensils']" />
+                  &nbsp;飲食推介
+                </button>
+                |
+                <button>
+                  <font-awesome-icon :icon="['fas', 'cocktail']" />
+                  &nbsp;飲品工作坊
+                </button>
+                |
+                <button>
+                  <font-awesome-icon :icon="['fa', 'user-friends']" />
+                  &nbsp;同行社群
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -32,14 +36,17 @@
     <hr
       style="
         border-top: 4px solid #fa7f32;
+        border-bottom: none;
+        border-left: none;
+        border-right: none;
         width: 100px;
         margin: 30px auto;
         opacity: 1;
       "
     />
 
-    <div id="recent-activities" class="d-flex justify-content-center">
-      <div class="d-flex flex-column align-items-center">
+    <div id="recent-activities" class="d-flex justify-content-center w-100">
+      <div class="d-flex flex-column align-items-center w-100">
         <h1 data-delay="none" data-speed="400">
           <mark class="highlight">RECENT</mark> ACTIVITIES
         </h1>
@@ -64,7 +71,7 @@
             >
               <img
                 decoding="async"
-                src="/assets/img/Fruitful.png"
+                :src="baseURL + '/assets/img/Fruitful.png'"
                 style="
                   width: 100%;
                   height: 100%;
@@ -85,71 +92,75 @@
         </Carousel>
       </div>
     </div>
-    <div id="connect-for-more" class="d-flex justify-content-center">
-      <div class="d-flex flex-column align-items-center">
-        <h1 data-delay="none" data-speed="400">
-          <mark class="highlight">CONNECT</mark> FOR MORE
-        </h1>
-        <div class="connect-buttons">
-          <a href="#" @click="onContactClicked()">
-            <button data-filter="*">
-              <font-awesome-icon :icon="['fa', 'contact-card']" />&nbsp;Add to
-              Contacts
-            </button>
-          </a>
-          <br />
-
-          <a href="#qrCode" @click="showQRCode = true">
-            <button data-filter="*">
-              <font-awesome-icon :icon="['fa', 'qrcode']" />&nbsp;QR Code
-            </button>
-          </a>
-          <div class="modal-overlay" v-if="showQRCode">
-            <div class="modal-content">
-              <button class="close-btn" @click="showQRCode = false">
-                <span class="cross">&times;</span>
-              </button>
-              <img
-                decoding="async"
-                loading="lazy"
-                width="256"
-                height="256"
-                src="/assets/img/moodiefoodie-qr-code.png"
-                @click="downloadVCard()"
-              />
+    <div class="container">
+      <div class="row">
+        <div id="connect-for-more" class="d-flex justify-content-center">
+          <div class="d-flex flex-column align-items-center">
+            <h1 data-delay="none" data-speed="400">
+              <mark class="highlight">CONNECT</mark> FOR MORE
+            </h1>
+            <div class="connect-buttons">
+              <a href="#" @click="onContactClicked()">
+                <button data-filter="*">
+                  <font-awesome-icon :icon="['fa', 'contact-card']" />&nbsp;Add
+                  to Contacts
+                </button>
+              </a>
+              <a href="#qrCode" @click="showQRCode = true">
+                <button data-filter="*">
+                  <font-awesome-icon :icon="['fa', 'qrcode']" />&nbsp;QR Code
+                </button>
+              </a>
+              <div class="modal-overlay" v-if="showQRCode">
+                <div class="modal-content">
+                  <button class="close-btn" @click="showQRCode = false">
+                    <span class="cross">&times;</span>
+                  </button>
+                  <img
+                    decoding="async"
+                    loading="lazy"
+                    width="256"
+                    height="256"
+                    :src="baseURL + '/assets/img/moodiefoodie-qr-code.png'"
+                    @click="downloadVCard()"
+                  />
+                </div>
+              </div>
+              <Teleport to="body">
+                <div class="modal-overlay" v-if="showQRCode">
+                  <div class="modal-content">
+                    <button class="close-btn" @click="showQRCode = false">
+                      &times;
+                    </button>
+                    <img
+                      decoding="async"
+                      loading="lazy"
+                      width="256"
+                      height="256"
+                      src="/assets/img/moodiefoodie-qr-code.png"
+                      @click="downloadVCard()"
+                    />
+                  </div>
+                </div>
+              </Teleport>
+              <a
+                href="https://wa.me/85262568894?text=你好，很高興認識Moodie.Foodie！我希望日後能收到更多關於精神健康及飲食健康的資訊。請新增我為你的聯絡人！https://moodiefoodie.codingpanda.me/"
+              >
+                <button data-filter=".portfolio_entries-dessert">
+                  <font-awesome-icon
+                    :icon="['fab', 'whatsapp']"
+                  />&nbsp;Whatsapp
+                </button>
+              </a>
+              <a href="http://www.instagram.com/moodie.foodie.hk">
+                <button data-filter=".portfolio_entries-fish">
+                  <font-awesome-icon
+                    :icon="['fab', 'instagram']"
+                  />&nbsp;Instagram
+                </button>
+              </a>
             </div>
           </div>
-          <Teleport to="body">
-            <div class="modal-overlay" v-if="showQRCode">
-              <div class="modal-content">
-                <button class="close-btn" @click="showQRCode = false">
-                  &times;
-                </button>
-                <img
-                  decoding="async"
-                  loading="lazy"
-                  width="256"
-                  height="256"
-                  src="/assets/img/moodiefoodie-qr-code.png"
-                  @click="downloadVCard()"
-                />
-              </div>
-            </div>
-          </Teleport>
-          <br />
-          <a
-            href="https://wa.me/85262568894?text=你好，很高興認識Moodie.Foodie！我希望日後能收到更多關於精神健康及飲食健康的資訊。請新增我為你的聯絡人！https://moodiefoodie.codingpanda.me/"
-          >
-            <button data-filter=".portfolio_entries-dessert">
-              <font-awesome-icon :icon="['fab', 'whatsapp']" />&nbsp;Whatsapp
-            </button>
-          </a>
-          <br />
-          <a href="http://www.instagram.com/moodie.foodie.hk">
-            <button data-filter=".portfolio_entries-fish">
-              <font-awesome-icon :icon="['fab', 'instagram']" />&nbsp;Instagram
-            </button>
-          </a>
         </div>
       </div>
     </div>
@@ -174,7 +185,9 @@
         >
           <p>Join Us and Enjoy to be a “Moodie.Foodie”!</p>
         </div>
-        <p style="max-width: 640px; color: #666; line-height: 2em">
+        <p
+          style="max-width: 640px; color: #666; line-height: 2em; margin: auto"
+        >
           Moodie.Foodie is a group of passionate Person-In-Recovery,
           Nutritionist, Pharmacy Dispenser and Volunteers with flexible mindsets
           in promoting diet-mental health relationship (DMHR) and Dietary
@@ -190,8 +203,11 @@ import { ref, onMounted, onUnmounted } from "vue";
 import "intersection-observer";
 import { useHead } from "@vueuse/head";
 
-import "vue3-carousel/carousel.css";
 import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
+
+import "vue3-carousel/carousel.css";
+
+const baseURL = import.meta.env.VITE_BASE_URL;
 
 const carouselConfig = {
   itemsToShow: 1,
@@ -199,9 +215,17 @@ const carouselConfig = {
 };
 
 const carouselImages = ref([
-  { src: "/assets/img/banner-1.jpeg", alt: "工作坊", isInView: false },
-  { src: "/assets/img/banner-2.jpeg", alt: "展覽", isInView: false },
-  { src: "/assets/img/banner-3.jpeg", alt: "小組討論", isInView: false },
+  {
+    src: baseURL + "/assets/img/banner-1.jpeg",
+    alt: "工作坊",
+    isInView: false,
+  },
+  { src: baseURL + "/assets/img/banner-2.jpeg", alt: "展覽", isInView: false },
+  {
+    src: baseURL + "/assets/img/banner-3.jpeg",
+    alt: "小組討論",
+    isInView: false,
+  },
 ]);
 
 const carouselOverlayRefs = ref([]);
@@ -220,7 +244,7 @@ const handleIntersection = (entries) => {
 
 let observer = null;
 
-if (process.client) {
+if (typeof window !== "undefined") {
   observer = new IntersectionObserver(handleIntersection, {
     threshold: 0.5,
   });
@@ -259,7 +283,14 @@ useHead({
       content:
         "RECENT ACTIVITIES CONNECT FOR MORE Add to Contacts QR Code Whatsapp Instagram WHO WE ARE “Brings You Mouthful of Mental Health!” Love Eating, Sharing and Gathering together? Join Us and Enjoy to be a “Moodie.Foodie”! Moodie.Foodie is a group of passionate Person-In-Recovery, Nutritionist, Pharmacy Dispenser and Volunteers with flexible mindsets in promoting diet-mental health relationship",
     },
-    { property: "og:url", content: "https://moodiefoodie.github.com/" },
+    {
+      property: "og:image",
+      content: baseURL + "/assets/moodiefoodie-1.png",
+    },
+    {
+      property: "og:url",
+      content: "https://moodiefoodieweb.github.io/moodiefoodie/",
+    },
     {
       property: "article:published_time",
       content: "2025-01-26T00:00:00+00:00",
@@ -272,9 +303,13 @@ useHead({
       content:
         "RECENT ACTIVITIES CONNECT FOR MORE Add to Contacts QR Code Whatsapp Instagram WHO WE ARE “Brings You Mouthful of Mental Health!” Love Eating, Sharing and Gathering together? Join Us and Enjoy to be a “Moodie.Foodie”! Moodie.Foodie is a group of passionate Person-In-Recovery, Nutritionist, Pharmacy Dispenser and Volunteers with flexible mindsets in promoting diet-mental health relationship",
     },
+    { name: "viewport", content: "width=device-width, initial-scale=1.0" },
   ],
   link: [
-    { rel: "canonical", href: "https://moodiefoodie.github.com/" },
+    {
+      rel: "canonical",
+      href: "https://moodiefoodieweb.github.io/moodiefoodie/",
+    },
     { rel: "preconnect", href: "https://fonts.googleapis.com" },
     { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: true },
     {
@@ -294,6 +329,7 @@ useHead({
       rel: "stylesheet",
       href: "https://fonts.googleapis.com/css2?family=BenchNine:wght@300;400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prata&display=swap",
     },
+    { rel: "icon", href: baseURL + "/favicon.ico", type: "image/x-icon" },
   ],
 });
 
@@ -312,7 +348,7 @@ function iOS() {
 }
 const onContactClicked = () => {
   if (iOS()) {
-    document.location.href = "/assets/stepwong.vcf";
+    document.location.href = baseURL + "/assets/stepwong.vcf";
   } else {
     downloadVCard();
   }
@@ -328,12 +364,22 @@ const downloadVCard = () => {
 body {
   background-color: #fdf6ee;
 }
+#app {
+  width: 100%;
+  max-width: 1280px;
+  padding: 0 !important;
+}
 </style>
 
 <style scoped>
+＃wrapper {
+  width: 100%;
+  max-width: 1280px;
+}
+
 h1 {
   font-family: BenchNine;
-  font-size: 48px;
+  font-size: 5vw;
   font-weight: 800;
   line-height: 60px;
   letter-spacing: 5px;
@@ -350,12 +396,14 @@ h2.page-title {
 
 #menu {
   border: 1px solid #e3e3e3;
-  padding: 10px 5px;
+  padding: 0;
+  font-size: 4vw;
 }
 
 #menu button {
   background: none;
   border: none;
+  padding: 4px;
   color: #666666;
 }
 
@@ -369,12 +417,14 @@ h2.page-title {
 }
 
 .mf-carousel {
+  width: 90%;
   max-width: 1000px;
   border: 1px solid #000;
   position: relative;
 }
 
 .mf-carousel img {
+  width: 100%;
   max-width: 1000px;
 }
 
@@ -442,6 +492,7 @@ h2.page-title {
 }
 
 .modal-content {
+  position: relative;
   width: auto;
   background: white;
   padding: 20px;
